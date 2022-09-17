@@ -10,18 +10,18 @@
       <!-- Country -->
       <div class="side_bar_option">
         <div class="head">
-          <p>Country</p>
+          <h4>Country</h4>
           <font-awesome-icon icon="fa-solid fa-filter" />
         </div>
         <input class="search" type="search" placeholder="Type to search">
         <div class="check_filter_container">
           <div class="check_filter_item">
             <input type="checkbox">
-          <span>France </span>
+            <span>France </span>
           </div>
           <div class="check_filter_item">
             <input type="checkbox">
-          <span>Germany</span>
+            <span>Germany</span>
           </div>
         </div>
 
@@ -29,18 +29,18 @@
       <!-- Region -->
       <div class="side_bar_option">
         <div class="head">
-          <p>Region</p>
+          <h4>Region</h4>
           <font-awesome-icon icon="fa-solid fa-filter" />
         </div>
         <input class="search" type="search" placeholder="Type to search">
         <div class="check_filter_container">
           <div class="check_filter_item">
             <input type="checkbox">
-          <span>France </span>
+            <span>France </span>
           </div>
           <div class="check_filter_item">
             <input type="checkbox">
-          <span>Germany</span>
+            <span>Germany</span>
           </div>
         </div>
 
@@ -133,65 +133,124 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .location_container {
-  margin-top: 2rem;
+  background-color: #ededed;
+  padding: 2rem;
+
   // menu bar 
   .menu_bar {
     .btn_location {
       position: relative;
       width: 70px;
-      button{
-        border: 1px solid gray;
-        border-radius: 5px;
+
+      button {
+        border: 1px solid #d3d3d3;
+        border-radius: 2rem;
+        background-color: #ededed;
         padding: 0.4rem;
       }
-      .icon_with_text{
-         width: 14px;
-         height: 14px;
-         border-radius: 50%;
-         position: absolute;
-         top: -4px;
-         right: 1px;
-         background: rgb(59, 180, 59);
-         font-size: 11px;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         color: white;
+
+      .icon_with_text {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        position: absolute;
+        top: -4px;
+        right: 1px;
+        background: rgb(59, 180, 59);
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
       }
     }
   }
-// location
-  .location_sidebar{
+
+  // location
+  .location_sidebar {
     margin-top: 0.5rem;
     width: 200px;
     height: 400px;
-    background: wheat;
-    border-radius: 10px;
+    background: #fff;
+    border: 1px solid hsla(0, 0%, 44%, .12);
+    border-radius: 1rem;
     padding: 0.5rem;
-    .side_bar_option{
+
+    .side_bar_option {
       height: 200px;
-      .head{
+
+      .head {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        svg{
+        h4 {
+          font-size: .9375rem;
+          font-weight: 600
+        }
+
+        svg {
           color: rgb(59, 180, 59);
+          font-size: .75rem;
         }
       }
-      .search{
-        border-radius: 5px;
-        border:1px solid gray;
-        padding: 0.35rem;
+
+      .search {
+        // border-radius: 5px;
+        // border:1px solid gray;
+        // padding: 0.35rem;
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid hsla(0, 0%, 44%, .12);
+        border-radius: 1rem;
+        height: 2rem;
+        padding: 0 1rem;
       }
-      .check_filter_container{
+
+      .check_filter_container {
         padding-top: 0.5rem;
-        .check_filter_item{
-          padding-top: 0.5rem;
 
+        .check_filter_item {
+          cursor: pointer;
+          margin: 0 !important;
+          overflow: hidden;
+          padding: .4rem .75rem;
+          white-space: nowrap;
+          width: inherit;
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+
+          input[type='checkbox'] {
+            // font-size: 3rem;
+            // height: 3rem;
+            // appearance: none;
+            cursor: pointer;
+            height: 1.125rem;
+            min-height: 1.125rem;
+            min-width: 1.125rem;
+            outline: none !important;
+            position: relative;
+            accent-color: #5abf6e;
+            width: 1.125rem;
+            color: #fff;
+
+          }
+
+          span {
+            border-radius: 0 !important;
+            color: #232426;
+
+            text-overflow: ellipsis;
+
+          }
 
         }
 
+        .check_filter_item:hover {
+          background-color: #c4ffcf;
+
+        }
       }
 
     }
