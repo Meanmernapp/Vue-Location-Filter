@@ -16,7 +16,7 @@
         <input class="search" type="search" v-model="searchCountry" placeholder="Type to search" >
         <!-- @keypress.enter="searchCountrys(searchCountry)"> -->
         <div class="check_filter_container">
-          <div class="check_filter_item" v-for="item in findCountry" :key="item">
+          <div class="check_filter_item" v-for="item in countries" :key="item">
             <input type="checkbox">
             <span>{{item}}</span>
           </div>
