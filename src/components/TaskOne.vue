@@ -2,7 +2,7 @@
   <div class="location_container">
     <div class="menu_bar">
       <div class="btn_location">
-        <button>Location</button>
+        <button>Location </button>
         <div class="icon_with_text">1</div>
       </div>
     </div>
@@ -13,16 +13,14 @@
           <h4>Country</h4>
           <font-awesome-icon icon="fa-solid fa-filter" />
         </div>
-        <input class="search" type="search" placeholder="Type to search">
+        <input class="search" type="search" v-model="searchCountry" placeholder="Type to search" >
+        <!-- @keypress.enter="searchCountrys(searchCountry)"> -->
         <div class="check_filter_container">
-          <div class="check_filter_item">
+          <div class="check_filter_item" v-for="item in findCountry" :key="item">
             <input type="checkbox">
-            <span>France </span>
+            <span>{{item}}</span>
           </div>
-          <div class="check_filter_item">
-            <input type="checkbox">
-            <span>Germany</span>
-          </div>
+
         </div>
 
       </div>
@@ -34,14 +32,11 @@
         </div>
         <input class="search" type="search" placeholder="Type to search">
         <div class="check_filter_container">
-          <div class="check_filter_item">
+          <div class="check_filter_item" v-for="item in regions" :key="item">
             <input type="checkbox">
-            <span>France </span>
+            <span>{{item}} </span>
           </div>
-          <div class="check_filter_item">
-            <input type="checkbox">
-            <span>Germany</span>
-          </div>
+
         </div>
 
       </div>
@@ -53,10 +48,11 @@
 
 
 <script lang="ts">
-import { defineComponent } from "vue";
-
+import { computed, defineComponent, ref } from "vue";
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faFilter } from "@fortawesome/free-solid-svg-icons"
+import { reactive } from 'vue'
+
 
 /* add icons to the library */
 library.add(faFilter)
@@ -66,67 +62,145 @@ library.add(faFilter)
 
 export default defineComponent({
   name: "TaskOne",
-  countries: [
-    "Albania",
-    "Andorra",
-    "Austria",
-    "Belarus",
-    "Belgium",
-    "Bosnia and Herzegovina",
-    "Bulgaria",
-    "Croatia",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Estonia",
-    "Faroe Islands",
-    "Finland",
-    "France",
-    "Germany",
-    "Gibraltar",
-    "Greece",
-    "Vatican City State",
-    "Hungary",
-    "Iceland",
-    "Ireland",
-    "Italy",
-    "Latvia",
-    "Liechtenstein",
-    "Lithuania",
-    "Luxembourg",
-    "Macedonia",
-    "Malta",
-    "Moldova",
-    "Monaco",
-    "Netherlands",
-    "Norway",
-    "Poland",
-    "Portugal",
-    "Romania",
-    "Russia",
-    "San Marino",
-    "Serbia",
-    "Slovakia",
-    "Slovenia",
-    "Spain",
-    "Svalbard and Jan Mayen",
-    "Sweden",
-    "Switzerland",
-    "Turkey",
-    "Ukraine",
-    "United Kingdom",
-    "Montenegro",
-  ],
   data() {
+    // var countries = [
+    //   "Albania",
+    //   "Andorra",
+    //   "Austria",
+    //   "Belarus",
+    //   "Belgium",
+    //   "Bosnia and Herzegovina",
+    //   "Bulgaria",
+    //   "Croatia",
+    //   "Cyprus",
+    //   "Czech Republic",
+    //   "Denmark",
+    //   "Estonia",
+    //   "Faroe Islands",
+    //   "Finland",
+    //   "France",
+    //   "Germany",
+    //   "Gibraltar",
+    //   "Greece",
+    //   "Vatican City State",
+    //   "Hungary",
+    //   "Iceland",
+    //   "Ireland",
+    //   "Italy",
+    //   "Latvia",
+    //   "Liechtenstein",
+    //   "Lithuania",
+    //   "Luxembourg",
+    //   "Macedonia",
+    //   "Malta",
+    //   "Moldova",
+    //   "Monaco",
+    //   "Netherlands",
+    //   "Norway",
+    //   "Poland",
+    //   "Portugal",
+    //   "Romania",
+    //   "Russia",
+    //   "San Marino",
+    //   "Serbia",
+    //   "Slovakia",
+    //   "Slovenia",
+    //   "Spain",
+    //   "Svalbard and Jan Mayen",
+    //   "Sweden",
+    //   "Switzerland",
+    //   "Turkey",
+    //   "Ukraine",
+    //   "United Kingdom",
+    //   "Montenegro",
+    // ]
+    // const countrys = reactive(countries)
+    // const findCountry = countrys.filter(item => item.includes("searchCountry"));
     return {
-      name: "rizwan",
-      age: "30",
+      searchCountry: "",
+      countries: [
+        "Albania",
+        "Andorra",
+        "Austria",
+        "Belarus",
+        "Belgium",
+        "Bosnia and Herzegovina",
+        "Bulgaria",
+        "Croatia",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Estonia",
+        "Faroe Islands",
+        "Finland",
+        "France",
+        "Germany",
+        "Gibraltar",
+        "Greece",
+        "Vatican City State",
+        "Hungary",
+        "Iceland",
+        "Ireland",
+        "Italy",
+        "Latvia",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macedonia",
+        "Malta",
+        "Moldova",
+        "Monaco",
+        "Netherlands",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Russia",
+        "San Marino",
+        "Serbia",
+        "Slovakia",
+        "Slovenia",
+        "Spain",
+        "Svalbard and Jan Mayen",
+        "Sweden",
+        "Switzerland",
+        "Turkey",
+        "Ukraine",
+        "United Kingdom",
+        "Montenegro",
+      ],
+      findCountry:[],
+
+      regions: [
+        "Alpine countries",
+        "Balkan peninsula",
+        "Baltics",
+        "Benelux",
+        "Central Europe",
+        "Danubian countries",
+        "Eastern Europe",
+        "European Union",
+        "Eurozone",
+        "Iberian Peninsula",
+        "Mediterranean countries",
+        "Nordics",
+        "Northern Europe",
+        "Scandinavian peninsula",
+        "Southern Europe",
+        "Western Europe",
+        "Europe",
+      ]
     };
   },
   props: {
     msg: String,
   },
+
+
+
 });
+
+
 </script>
 
 
@@ -178,6 +252,7 @@ export default defineComponent({
 
     .side_bar_option {
       height: 200px;
+      overflow: hidden;
 
       .head {
         display: flex;
@@ -240,7 +315,6 @@ export default defineComponent({
           span {
             border-radius: 0 !important;
             color: #232426;
-
             text-overflow: ellipsis;
 
           }
