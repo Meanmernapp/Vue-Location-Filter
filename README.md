@@ -35,7 +35,6 @@ The Vue Location Filter Component is designed to provide an interactive interfac
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/vue-location-filter.git
     cd vue-location-filter
     ```
 
